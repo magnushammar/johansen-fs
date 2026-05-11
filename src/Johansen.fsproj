@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Johansen</RootNamespace>
+    <AssemblyName>Johansen</AssemblyName>
+    <Description>Johansen (1991) cointegration + Hasbrouck (1995) information-share for the bivariate r=1 case. Zero external dependencies; column-major SIMD hot loop.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Johansen.fs" />
+  </ItemGroup>
+
+</Project>

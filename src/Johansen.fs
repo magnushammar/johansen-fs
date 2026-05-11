@@ -1,9 +1,4 @@
-/// johansen-fs — FSI convenience copy of the library source in
-/// Johansen.fs. Identical code; kept as a `.fsx` so callers can
-/// `#load` it from scripts and notebooks without referencing a DLL.
-/// Compiled callers should reference Johansen.fsproj instead.
-///
-/// Johansen (1991) cointegration + Hasbrouck (1995) IS
+/// johansen-fs — Johansen (1991) cointegration + Hasbrouck (1995) IS
 /// for the bivariate r=1 case. Column-major storage and a single-pass
 /// `System.Numerics.Vector<double>` SIMD accumulator across the 13 dot
 /// products that dominate the OLS-partialling hot loop.
@@ -12,6 +7,7 @@
 /// SIMD). The 3×3 symmetric eigvals are computed analytically via
 /// Smith (1961); Cholesky of S_11 and the L⁻¹ M L⁻ᵀ similarity
 /// transform are hand-rolled in scalar code.
+module Johansen
 
 open System
 
