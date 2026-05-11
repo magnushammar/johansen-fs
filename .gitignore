@@ -1,0 +1,19 @@
+# Build / runtime artefacts
+obj/
+bin/
+.fsi-cache/
+
+# Editor
+.vs/
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python venv for the reference dumper
+.venv/
+__pycache__/
+*.pyc
