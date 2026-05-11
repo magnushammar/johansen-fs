@@ -58,24 +58,24 @@ just reproduces the rank-test and IS-decomposition arithmetic exactly.)
 ## Faster
 
 Wall-clock comparison vs statsmodels VECM, single-threaded
-(13th-gen Intel i7, AVX-2):
+(13th-gen Intel i7, AVX-2; single bench run, see `tests/Bench.fsx`):
 
-| Window size | statsmodels | F# V3     | Speedup     |
+| Window size | statsmodels | F# (this lib) | Speedup     |
 |---:|---:|---:|---:|
-| 300         | 1.0 ms      | 0.0025 ms |    **400×** |
-| 1 000       | 7.0 ms      | 0.006 ms  |  **1 167×** |
-| 10 000      | 855 ms      | 0.044 ms  | **19 400×** |
-| 100 000     | **OOM**     | 0.57 ms   | —           |
+| 300         | 3 ms        | 0.0014 ms     |  **2 100×** |
+| 1 000       | 10 ms       | 0.0044 ms     |  **2 300×** |
+| 10 000      | 717 ms      | 0.0425 ms     | **16 900×** |
+| 100 000     | **OOM**     | 0.6257 ms     | —           |
 
 Linear scaling above the statsmodels memory wall:
 
 ```
-synth T=    300   V3 = 0.0023 ms    (430 k fits/s)
-synth T=  1 000   V3 = 0.0056 ms    (179 k fits/s)
-synth T=  5 000   V3 = 0.0238 ms    ( 42 k fits/s)
-synth T= 10 000   V3 = 0.0424 ms    ( 24 k fits/s)
-synth T= 50 000   V3 = 0.2687 ms    (3.7 k fits/s)
-synth T=100 000   V3 = 0.6021 ms    (1.7 k fits/s)
+synth T=    300   0.0014 ms    (734 k fits/s)
+synth T=  1 000   0.0044 ms    (229 k fits/s)
+synth T=  5 000   0.0213 ms    ( 47 k fits/s)
+synth T= 10 000   0.0425 ms    ( 24 k fits/s)
+synth T= 50 000   0.2675 ms    (3.7 k fits/s)
+synth T=100 000   0.6257 ms    (1.6 k fits/s)
 ```
 
 Run the full benchmark yourself with `dotnet fsi tests/Bench.fsx`.
